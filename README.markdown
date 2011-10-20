@@ -22,7 +22,7 @@ up-to-date requires us to create a cron job for it. `update.sh` can be used for 
 
 ```bash
 $ vim update.sh # edit the project path
-$ crontab -e
+$ crontab -e # add your cron jobs below line
 0 * * * * /path/to/update.sh
 ~
 ~
