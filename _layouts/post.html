@@ -1,0 +1,48 @@
+---
+layout: default
+---
+<div class="posts">  
+  <h2>{{ page.date | date: "%a, %d %h %Y" }}</h2>
+  <div class="post">
+    {% if page.github %}
+      <a href="http://github.com/{{ site.github }}"><img class="icon" src="http://a3.twimg.com/profile_images/651575553/twittergithub2_reasonably_small.png" /></a>
+    {% elsif page.twitter %}
+      <a href="http://twitter.com/{{ site.twitter_username }}"><img class="icon" src="http://a0.twimg.com/profile_images/1124040897/at-twitter_reasonably_small.png" /></a>
+    {% elsif page.delicious %}
+      <a href="http://delicious.com/{{ site.delicious }}"><img class="icon" src="http://a1.twimg.com/profile_images/1561542040/delicious_sm_logo_no-text_reasonably_small.jpg" /></a>
+    {% elsif page.lastfm %}
+      <a href="http://last.fm/user/{{ site.lastfm }}"><img class="icon" src="http://a0.twimg.com/profile_images/1251444221/lastfm-twitter_avatar.jpg" /></a>
+    {% endif %}
+    <div class="content{% if page.next-sibling %} has-next-sibling{% endif %}{% if page.previous-sibling %} has-previous-sibling{% endif %}">
+      {{ page.title }}
+      <div class="date">
+        {{ page.date | date: "%H:%M" }} —
+        <a href="{{ page.link }}" class="link">{{ page.link }}</a>
+      </div>
+      <div class="description">
+        {{ page.content }}
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+</div>
+
+<a href="{{ site.url }}" style='margin-left:50px;'>Back to Homepage</a>
+
+{% if site.disqus %}
+  <div class="comments">
+      <h1>Comments</h1>
+      <div id="disqus_thread"></div>
+  </div>
+
+<script type="text/javascript">
+    var disqus_shortname = '{{ site.disqus }}';
+    var disqus_identifier = '{{ page.id }}';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+{% endif %}

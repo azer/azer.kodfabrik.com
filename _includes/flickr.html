@@ -1,0 +1,13 @@
+{% if post.previous-sibling == false %}
+<div class="post flickr">
+  <a href="http://flickr.com/photos/{{ site.flickr }}"><img class="icon" src="http://a0.twimg.com/profile_images/1191641207/twitter_icon_78_reasonably_small.jpg" /></a>
+  <div class="content">
+{% endif %}
+    <a href="{{ post.link }}" class="tn{% if post.next-sibling %} has-next-sibling{% endif %}{% if post.previous-sibling %} has-previous-sibling{% endif %}"">
+      <img src="{{ post.thumbnail }}" />
+    </a>
+{% if post.next-sibling == false %}
+  </div>
+  <div class="clear"></div>
+  </div>
+{% endif %}

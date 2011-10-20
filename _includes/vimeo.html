@@ -1,0 +1,11 @@
+{% if post.previous-sibling == false %}
+<div class="post vimeo">
+  <a href="http://vimeo.com/{{ site.vimeo }}"><img class="icon" src="http://a2.twimg.com/profile_images/313208114/Untitled-1_reasonably_small.png" /></a>
+  <div class="content">
+{% endif %}
+<iframe src="http://player.vimeo.com/video/{{ post.vimeo_id }}?portrait=0&autoplay=0" width="398" height="224" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>
+{% if post.next-sibling == false %}
+  </div>
+  <div class="clear"></div>
+  </div>
+{% endif %}

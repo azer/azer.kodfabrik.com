@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class='posts'>
+  {% for post in site.posts %} 
+
+    {% if post.flickr %}
+      {% include flickr.html %}
+    {% elsif post.vimeo %}
+      {% include vimeo.html %}
+    {% else %}
+      {% include post.html %}
+    {% endif %}
+
+  {% endfor %}
+</div>
