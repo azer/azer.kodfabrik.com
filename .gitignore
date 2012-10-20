@@ -2,3 +2,4 @@ _site
 _posts
 _config.yml.prod
 _config.yml.dev
+logs

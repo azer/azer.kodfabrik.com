@@ -14,6 +14,8 @@
     <a href="http://twitter.com/{{ site.twitter_username }}"><img class="icon" src="http://a0.twimg.com/profile_images/1124040897/at-twitter_reasonably_small.png" /></a>
   {% elsif post.delicious %}
     <a href="http://delicious.com/{{ site.delicious }}"><img class="icon" src="http://a1.twimg.com/profile_images/1561542040/delicious_sm_logo_no-text_reasonably_small.jpg" /></a>
+  {% elsif post.pinboard %}
+    <a href="http://pinboard.in/u:{{ site.pinboard }}"><img class="icon" src="http://a1.twimg.com/profile_images/1561542040/delicious_sm_logo_no-text_reasonably_small.jpg" /></a>
   {% elsif post.lastfm %}
     <a href="http://last.fm/user/{{ site.lastfm }}"><img class="icon" src="http://a0.twimg.com/profile_images/1251444221/lastfm-twitter_avatar.jpg" /></a>
   {% endif %}

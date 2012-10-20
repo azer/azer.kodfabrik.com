@@ -13,6 +13,9 @@
       }
 
       html, body { color:#111; background:#f2f2f2; margin:0; padding:0; font:1em "PT Serif"; }
+      a { color:#152545; }
+      a:hover { color:#652515; text-decoration:none; }
+
       .container { width:844px; margin:0 auto; background:#fff; padding:25px 0px; }
       .container {
         -moz-box-shadow: 0 0 5px #ccc;
@@ -20,37 +23,49 @@
         box-shadow: 0 0 5px #ccc;
       }
 
-      .header { padding:0 50px; }
-      h1 { font-size:1.6em; font-weight:normal; padding:0; margin:0; }
-      h1 span { border-bottom:1px dotted #ccc; }
+      h1 { font-size:2em; font-weight:normal; padding:0; margin:0 0 10px 0; }
+      h1 span { border-bottom:1px dotted #aaa; }
 
-      .follow { position:absolute; margin:3px 670px; padding:3px 6px; 
-                background:#fcfcfc;
-                border:1px solid #f5f5f5; border-radius:5px;
-                cursor:pointer;
+      h2 { padding:0; margin:10px 0; }
+
+      .projects, .about { padding:0px 50px; }
+      .projects { margin-top:30px; }
+      .social { padding:0 50px; margin-top:30px; }
+
+      .about .photo { float:left; border:1px solid #eee; padding:3px; margin-right:10px; }
+      .about p { line-height:1.6em; margin:0 0 10px 0; }
+
+      .projects { }
+      .projects ul { font-size:1em; color:#888; list-style:upper-roman; margin:10px 0; padding:0 20px; }
+      .projects li { margin-bottom:5px; }
+      .projects a { color:#888; }
+      .projects strong a { color:#152555; }
+      .projects strong a:hover { color:#552515; }
+
+      .follow { position:absolute; margin:5px 630px; padding:3px 6px; 
+                background:#f2f2f2;
+                border:1px solid #ddd; border-radius:5px;
+                cursor:pointer; font-weight:bold;
                 width:100px; text-align:center;
-                font-size:0.6em; text-decoration:none; color:#ff3366; }
-      .follow .links { display:none; text-align:left; padding:2px; }
+                font-size:0.6em; text-decoration:none; color:#152545; }
+      .follow .links { display:none; font-weight:normal; text-align:left; padding:2px; }
       .follow .links a { color:#333; display:block; font-size:0.9em; padding:2px 4px; }
-      .follow .links a:hover { color:#06b; background:#ffffe2; text-decoration:none; }
-      .follow:hover { border-color:#eee; background:#fff; }
+      .follow .links a:hover { background:#eee; text-decoration:none; }
+      .follow:hover { border-color:#bbb; color:#452515; background:#fff; }
       .follow:hover .links { display:block; }
 
-      .posts { margin:35px 0; }
+      .posts { margin:20px 0; }
 
-      .post { display:block; text-decoration:none; color:#222; padding:10px 50px; border-bottom:1px solid #fff; }
-      .post .icon { opacity:0.9; width:72px; height:72px; float:left; margin:10px 0 0 10px; }
+      .post { display:block; text-decoration:none; color:#111; padding:10px 50px; border-bottom:1px solid #fff; }
+      .post .icon { width:72px; height:72px; float:left; margin:10px 0 0 10px; }
       .post .content { float:right; width:630px; line-height:21px; padding:5px 0; }
       .post .content p { margin:0; padding:0; }
       .post .date { font-size:0.8em; color:#666; }
-      .post .date a { padding-left:4px; color:#aaa; }
-      .post .permalink:hover { text-decoration:none; }
 
-      .post:hover { background:#fafafa; color:#000;  }
-      .post:hover .icon { opacity:1; }
-      .post:hover .date { color:#333; }
-      .post:hover .date a { color:#888; }
-      .post .content .link:hover { color:#0044ee; text-decoration:none; }
+      .post .permalink { color:#666; }
+      .post .permalink:hover { color:#333; text-decoration:none; }
+      .post .link { color:#152555; }
+      .post .link:hover { color:#552515; }
 
       .comments { padding:25px 50px; }
       .comments h1 { font-size:1.7em; }
@@ -66,7 +81,7 @@
       .flickr .content.has-next-sibling { float:right; }
       .flickr .content.has-previous-sibling { float:right; }
   
-      .footer { padding-left:50px; margin-top:25px; color:#666; font-size:0.8em; }
+      .footer { border-top:1px solid #ccc;  padding:20px 0 0 0px; margin:25px 50px; color:#666; font-size:0.8em; }
 
       .clear { clear:both; }
 
@@ -74,28 +89,36 @@
   </head> 
   <body> 
     <div class="container">
-      <div class="header">
-        <h1>
-          <div class="follow">
-          Follow
-            <div class="links">
-              <a href="{{ site.url }}/atom.xml">RSS</a>
-              {% if site.twitter_username %}<a href="http://twitter.com/{{ site.twitter_username }}">Twitter</a>{% endif %} 
-              {% if site.github %}<a href="http://github.com/{{ site.github }}">Github</a>{% endif %}   
-              {% if site.flickr_username %}<a href="http://flickr.com/photos/{{ site.flickr_username }}">Flickr</a>{% endif %}   
-              {% if site.lastfm %}<a href="http://lastfm.com/user/{{ site.lastfm }}">Last.FM</a>{% endif %}   
-              {% if site.delicious %}<a href="http://delicious.com/{{ site.delicious }}">Delicious</a>{% endif %}   
+      {% if page.home %}
+        {% include home.html %}
+        <div class="social">
+          <h1>
+            <div class="follow">
+            Follow
+              <div class="links">
+                <a href="{{ site.url }}/atom.xml">RSS</a>
+                {% if site.twitter_username %}<a href="http://twitter.com/{{ site.twitter_username }}">Twitter</a>{% endif %} 
+                {% if site.github %}<a href="http://github.com/{{ site.github }}">Github</a>{% endif %}   
+                {% if site.flickr_username %}<a href="http://flickr.com/photos/{{ site.flickr_username }}">Flickr</a>{% endif %}   
+                {% if site.vimeo %}<a href="http://vimeo.com/{{ site.vimeo }}">Vimeo</a>{% endif %}   
+                {% if site.lastfm %}<a href="http://lastfm.com/user/{{ site.lastfm }}">Last.FM</a>{% endif %}   
+                {% if site.pinboard %}<a href="http://pinboard.in/u:{{ site.pinboard }}">Pinboard</a>{% endif %}   
+              </div>
             </div>
-          </div>
-          <span>{{ site.title }}</span>
-        </h1>
-        <div class="clear"></div>
-      </div>
+            <span>Social Network Activities</span>
+          </h1>
+        </div>
+      {% else %}
+        <div class="about">
+          <h1><span>Azer Ko&#231;ulu</span></h1>
+        </div>
+      {% endif %}
 
       {{ content }}
 
+
       <div class="footer">
-        Last Update: {{ site.time | date_long_string }}
+       ★ Kodfabrik 2011 · Last Modified: {{ site.time | date: "%m.%d.%Y %H:%M:%S" }}
       </div>
     </div>
 
