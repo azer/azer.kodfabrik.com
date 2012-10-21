@@ -1,9 +1,14 @@
-all:
-	jekyll
+build:
+	jekyll ../public
 
 update: 
 	echo `date`." - Fetching updates..." >> logs
 	rake social
 
 deploy:
-	jekyll ../public
+	$(MAKE) build
+
+setup:
+	$(MAKE) update
+	$(MAKE) build
+
