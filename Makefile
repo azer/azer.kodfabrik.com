@@ -3,6 +3,7 @@ build:
 
 update: 
 	echo `date`." - Fetching updates..." >> logs
+	rm -rf _posts/*
 	rake social
 
 deploy:
