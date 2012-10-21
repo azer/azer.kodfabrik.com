@@ -9,6 +9,7 @@ deploy:
 	$(MAKE) build
 
 setup:
+	mkdir -p _posts
 	$(MAKE) update
 	$(MAKE) build
 
