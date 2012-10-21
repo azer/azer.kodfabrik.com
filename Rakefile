@@ -41,7 +41,7 @@ task :social do
     end
 
     el['content']['---'] = "---\nprint-date: #{print_date}\nprevious-sibling: #{el['previousSibling']}\nnext-sibling: #{el['nextSibling']}"
-    save("/home/azer/www/azer.kodfabrik.com/src/_posts/#{el['slug']}.markdown", el['content'])
+    save("./_posts/#{el['slug']}.markdown", el['content'])
   end
 end
 

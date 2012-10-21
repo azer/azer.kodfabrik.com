@@ -1,11 +1,7 @@
-PROJECT_PATH=/home/azer/www/azer.kodfabrik.com/src
-TARGET_PATH=/home/azer/www/azer.kodfabrik.com/public
-
 all:
+	echo `date`." - Building the site..." >> logs
 	jekyll
 
-deploy: 
-	cp -rf * /home/azer/www/azer.kodfabrik.com/src/.
-
-up: 
+update: 
+	echo `date`." - Fetching updates..." >> logs
 	rake social
